@@ -17,11 +17,11 @@
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = (45 - minutes) + ":" + (60 - seconds);
+        display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
             timer = 0;
-            document.getElementById('time').className = 'on';
+			document.getElementById('time').className = 'on';
         }
     }, 1000);
 }
@@ -31,7 +31,6 @@ window.onload = function () {
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
 };
-
 	</script>
 	<style type="text/css">
 	#time{
