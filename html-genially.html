@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+	<title>Minuteur de S'CAPE</title>
+<meta name="description" content="Minuteur de S'CAPE">
+  <meta name="keywords" content="Escape game, jeu évasion, code, crypto, polychrome">
+  <meta name="author" content="eNePe pour S'CAPE">
+
+  
+		
+	<script type="text/javascript">
+	function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = 0;
+			document.getElementById('time').className = 'on';
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 60,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+	</script>
+	<style type="text/css">
+	#time{
+		color: #17a265;
+	text-align: center;
+	display: block;
+	margin: auto;
+	width:100%;
+	font-size: 30vw;}
+	#time.on{
+		color: #47587a;
+	  animation: blinker 1s linear infinite;	
+	}
+	
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+	</style>
+	  </head>
+	<body>
+    <div> <span id="time">45:00</span></div>
+</body>
+  </html>
